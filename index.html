@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冠頂工坊 | 台灣在地山林乾貨與高山茶專賣</title>
+    <style>
+        /* ==========================================================================
+           🎨 絕美大地風：CSS 品牌視覺設計
+           ========================================================================== */
+        :root {
+            --primary-orange: #ee4d2d; /* 導流核心：蝦皮招牌橘 */
+            --forest-green: #2d5a27;   /* 高山茶翠綠 */
+            --earth-brown: #4a3728;    /* 香菇木質深褐 */
+            --warm-beige: #fdfaf6;     /* 溫暖柔和背景色 */
+            --text-dark: #2c2c2c;      /* 質感內文灰黑 */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--warm-beige);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* 頂部隱形微導覽 */
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand-logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--earth-brown);
+        }
+
+        /* 1. 首頁巨幕英雄區 (Hero Section) */
+        .hero-section {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            /* 使用高質感大地山林底圖 */
+            background: linear-gradient(rgba(74, 55, 40, 0.75), rgba(45, 90, 39, 0.8)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            color: #fff;
+        }
+
+        .hero-section h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.95;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+        }
+
+        /* 核心導流按鈕 (CTA Button)：完美致敬原要求 */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--primary-orange);
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(238, 77, 45, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(238, 77, 45, 0.6);
+            background-color: #f05d42;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(238, 77, 45, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(238, 77, 45, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(238, 77, 45, 0); }
+        }
+
+        /* 2. 品牌堅持區 */
+        .intro-section {
+            max-width: 1000px;
+            margin: -60px auto 60px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 1.8rem;
+            color: var(--earth-brown);
+            margin-bottom: 15px;
+        }
+
+        .intro-section .divider {
+            width: 50px;
+            height: 3px;
+            background: var(--forest-green);
+            margin: 0 auto 20px;
+        }
+
+        /* 3. 產品櫥窗區 (Product Grid) */
+        .products-section {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--earth-brown);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(74, 55, 40, 0.1);
+        }
+
+        .product-img-wrapper {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--forest-green);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--earth-brown);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        /* 頁尾區 */
+        footer {
+            background-color: var(--earth-brown);
+            color: rgba(255,255,255,0.7);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 5px solid var(--forest-green);
+        }
+
+        /* 響應式微調 */
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.2rem; }
+            .hero-section p { font-size: 1.1rem; }
+            .intro-section { margin: -30px 20px 40px; padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 品牌輕頂欄 -->
+    <header>
+        <div class="brand-logo">✨ 冠頂工坊 ✨</div>
+    </header>
+
+    <!-- 1. 英雄聚焦區 (文案已為您構思完畢) -->
+    <section class="hero-section">
+        <h1>冠頂自然，匠心琢坊</h1>
+        <p>嚴選台灣在地高山純淨乾貨，將大山最真摯的滋味，毫無保留地送達您的茶桌與餐盤。</p>
+        
+        <!-- 🎯 唯一核心要求：強力導流按鈕 -->
+        <!-- 💡 老闆請注意：請將下方的 href="..." 換成您真正的蝦皮賣場網址或官網連結 -->
+        <a href="https://gugucucu.easy.co/" target="_blank" class="cta-button">
+            <span>🛒 點此進入【冠頂工坊】官方賣場</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+    </section>
+
+    <!-- 2. 品牌承諾介紹區 -->
+    <section class="intro-section">
+        <h2>源自山林的純粹堅持</h2>
+        <div class="divider"></div>
+        <p style="color: #555; max-width: 800px; margin: 0 auto; font-size: 15px;">
+            我們深信，最好的美味來自於大自然孕育的厚實恩賜。從茶園裡的破曉採收，到菇棚下的手工挑選，冠頂工坊親自把關每一道工序。不加多餘防腐、不求速成加工，只為將無可挑剔的頂級乾貨與醇厚茶香，完美呈現給注重生活品質的您。
+        </p>
+    </section>
+
+    <!-- 3. 質感產品橱窗區 (五大支柱文案與圖片配置) -->
+    <section class="products-section">
+        <h2 class="section-title">📦 工坊嚴選系列</h2>
+        
+        <div class="product-grid">
+            
+            <!-- 產品 1：乾香菇 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://unsplash.com" class="product-img" alt="特選乾香菇">
+                </div>
+                <div class="product-info">
+                    <span class="product-tag">山林蕈菇</span>
+                    <div class="product-title">台灣特選黑早乾香菇</div>
+                    <div class="product-desc">飽滿厚肉、蕈褶整齊。經傳統溫火慢焙，完美鎖住濃郁的山林香氣，無論燉湯、爆香皆是餐桌上的靈魂要角。</div>
+                </div>
+            </div>
+
+            <!-- 產品 2：白木耳 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://unsplash.com" class="product-img" alt="野生銀耳">
+                </div>
+                <div class="product-info">
+                    <span class="product-tag">純素燕窩</span>
+                    <div class="product-title">極品珍稀白木耳 (銀耳)</div>
+                    <div class="product-desc">無漂白、無重金屬殘留。片大質嫩，富含植物性膠質。溫潤順口，是您日常美顏、養生甜湯的頂級首選。</div>
+                </div>
+            </div>
+
+            <!-- 產品 3：高山茶 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://unsplash.com" class="product-img" alt="高山茶">
+                </div>
+                <div class="product-info">
+                    <span class="product-tag">淬鍊茶菁</span>
+                    <div class="product-title">頂級手採高山烏龍茶</div>
+                    <div class="product-desc">產自高海拔雲霧茶園，經職人手採揉捻。茶湯翠綠清透、喉韻甘醇綿長，帶有獨特冷冽山氣，經得起多次沖泡。</div>
+                </div>
+            </div>
+
+            <!-- 產品 4：香菇餅乾 -->
