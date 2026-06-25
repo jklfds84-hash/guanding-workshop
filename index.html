@@ -34,9 +34,14 @@
 <body>
 
     <!-- 品牌輕頂欄 -->
-    <header>
-        <div class="brand-logo">✨ 冠頂工坊 ✨</div>
-    </header>
+   <header>
+    <div class="brand-logo" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+        
+        <img src="images\S__92413962.jpg" alt="冠頂工坊 LOGO" style="height: 50px; width: auto;">
+        
+        <span>冠頂工坊</span>
+    </div>
+   </header>
 
     <!-- 1. 英雄聚焦區 (文案已為您構思完畢) -->
     <section class="hero-section">
@@ -80,11 +85,23 @@
         <h2>🌿 源自山林的純粹堅持</h2>
         <div class="divider"></div>
         
-        <!-- 頂部亮點文案 -->
-        <p style="color: #555; max-width: 800px; margin: 0 auto 25px; font-size: 16px; font-weight: bold; letter-spacing: 1px;">
-            🌿 嚴選埔里山產｜天然日曬｜批發零售<br>
-            <span style="color: #ee4d2d; font-size: 18px;">🔥 LINE好友專屬優惠活動熱烈進行中！</span>
-        </p>
+                <!-- 頂部亮點文案 (加上左右並排，QR Code 在左，文字在右) -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 30px; margin: 0 auto 25px; max-width: 800px;">
+            
+            <!-- 左邊：放 LINE QR Code 和 ID -->
+            <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0;">
+                <!-- 請記得把 qrcode.png 換成您實際的圖片檔名，例如 S__92405765.jpg 那類的 -->
+                <img src="images\EA941812-0A26-457F-B799-21E9CAE03767.png" alt="LINE QR Code" style="width: 120px; height: 120px; object-fit: contain;">
+                <span style="font-size: 14px; font-weight: bold; color: #ee4d2d; margin-top: 5px;">LINE ID: @420lgdyo</span>
+            </div>
+
+            <!-- 右邊：完全保留您原本的文字內容與樣式 -->
+            <p style="color: #555; font-size: 16px; font-weight: bold; letter-spacing: 1px; text-align: left; margin: 0; line-height: 1.8;">
+                🌿 嚴選埔里山產｜天然日曬｜批發零售<br>
+                <span style="color: #ee4d2d; font-size: 18px;">🔥 LINE好友專屬優惠活動熱烈進行中！</span>
+            </p>
+
+        </div>
 
         <!-- 🌟 LINE 好友特別活動看板 -->
         <div style="background: #fffbfa; border: 1px dashed #ee4d2d; padding: 20px; border-radius: 8px; margin-bottom: 35px; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
