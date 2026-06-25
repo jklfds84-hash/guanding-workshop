@@ -283,13 +283,198 @@
     </section>
 
     <!-- 2. 品牌承諾介紹區 -->
-    <section class="intro-section">
-        <h2>源自山林的純粹堅持</h2>
+        <!-- ==========================================================================
+       🍄 冠頂工坊：商品系列價目表 (精心排版大升級)
+       ========================================================================== -->
+               <!-- 🌟 補上切換分頁的 JavaScript 大腦 🌟 -->
+        <script>
+            function switchTab(tabId) {
+                // 1. 隱藏所有的表格區塊
+                const boxes = document.querySelectorAll('.price-table-box');
+                boxes.forEach(box => box.classList.remove('active-box'));
+                
+                // 2. 取消所有按鈕的亮起（深色）狀態
+                const buttons = document.querySelectorAll('#tab-button-group button');
+                buttons.forEach(btn => btn.classList.remove('active-tab'));
+                
+                // 3. 顯示目前點擊的表格
+                document.getElementById(tabId).classList.add('active-box');
+                
+                // 4. 自動去抓目前被點擊的那個按鈕，幫它加上 active-tab 樣式
+                if (window.event && window.event.currentTarget) {
+                    window.event.currentTarget.classList.add('active-tab');
+                }
+            }
+        </script>
+
+    <section class="intro-section" style="max-width: 1100px;">
+        <h2>🌿 源自山林的純粹堅持</h2>
         <div class="divider"></div>
-        <p style="color: #555; max-width: 800px; margin: 0 auto; font-size: 15px;">
-            我們深信，最好的美味來自於大自然孕育的厚實恩賜。從茶園裡的破曉採收，到菇棚下的手工挑選，冠頂工坊親自把關每一道工序。不加多餘防腐、不求速成加工，只為將無可挑剔的頂級乾貨與醇厚茶香，完美呈現給注重生活品質的您。
+        
+        <!-- 頂部亮點文案 -->
+        <p style="color: #555; max-width: 800px; margin: 0 auto 25px; font-size: 16px; font-weight: bold; letter-spacing: 1px;">
+            🌿 嚴選埔里山產｜天然日曬｜批發零售<br>
+            <span style="color: #ee4d2d; font-size: 18px;">🔥 LINE好友專屬優惠活動熱烈進行中！</span>
         </p>
-    </section>
+
+        <!-- 🌟 LINE 好友特別活動看板 -->
+        <div style="background: #fffbfa; border: 1px dashed #ee4d2d; padding: 20px; border-radius: 8px; margin-bottom: 35px; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+            <div style="font-size: 15px; font-weight: bold; color: #4a3728;">🎁 LINE好友限定三重大禮：</div>
+            <div style="font-size: 14px; color: #555;">✅ 全館下單即享 <strong>95折</strong> 優惠</div>
+            <div style="font-size: 14px; color: #555;">✅ 超商取貨滿 <strong>$699</strong> 即享免運</div>
+            <div style="font-size: 14px; color: #555;">✅ 大宗貨運满 <strong>5斤</strong> 宅配免運</div>
+            <div style="font-size: 14px; color: #ee4d2d; font-weight: bold; grid-column: 1/-1; border-top: 1px dashed #eee; padding-top: 10px; text-align: center;">
+                👉 批發 / 餐廳 / 團購需求可另外專案報價，歡迎加入洽詢
+            </div>
+        </div>
+
+        <h3 style="color: #4a3728; margin-bottom: 20px; font-size: 22px;">📋 冠頂工坊現貨價目表</h3>
+
+        <!-- 🎛️ 蝦皮式切換分頁標籤 -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 25px;" id="tab-button-group">
+            <button onclick="switchTab('shroom-tab')" class="menu-tab-btn active-tab">🍄 核心香菇系列</button>
+            <button onclick="switchTab('premium-tab')" class="menu-tab-btn">🌳 椴木/武界系列</button>
+            <button onclick="switchTab('byproduct-tab')" class="menu-tab-btn">🧩 香菇副產品</button>
+            <button onclick="switchTab('healthy-tab')" class="menu-tab-btn">🌿 養生菌菇類</button>
+            <button onclick="switchTab('snack-tab')" class="menu-tab-btn">🍘 熱銷零嘴點心</button>
+        </div>
+
+        <!-- 📊 內嵌專屬表格樣式 (直接寫在HTML內部方便您複製) -->
+        <style>
+            .menu-tab-btn { background: #f0edf8; border: 1px solid #ddd; color: #555; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+            .menu-tab-btn:hover { background: #e0dbf0; color: #4a3728; }
+            .menu-tab-btn.active-tab { background: #4a3728; color: white; border-color: #4a3728; }
+            
+            .price-table-box { display: none; width: 100%; overflow-x: auto; background: #fff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+            .price-table-box.active-box { display: block; animation: fadeIn 0.3s ease; }
+            
+            .guanding-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; min-width: 500px; }
+            .guanding-table th { background-color: #4a3728; color: white; padding: 12px 15px; font-weight: bold; }
+            .guanding-table td { padding: 12px 15px; border-bottom: 1px solid #eee; color: #444; }
+            .guanding-table tr:hover { background-color: #fafafa; }
+            
+            .badge-hot { background-color: #ff4d4d; color: white; font-size: 11px; padding: 2px 6px; border-radius: 3px; font-weight: bold; margin-left: 5px; }
+            .badge-cp { background-color: #ff9f43; color: white; font-size: 11px; padding: 2px 6px; border-radius: 3px; font-weight: bold; margin-left: 5px; }
+            
+            @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        </style>
+
+        <!-- 1. 核心香菇系列 -->
+        <div id="shroom-tab" class="price-table-box active-box">
+            <table class="guanding-table">
+                <thead>
+                    <tr><th>商品品項（主力商品）</th><th>規格說明</th><th>特惠價格</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>惜福菇系列</strong> <span class="badge-cp">高CP首選</span></td><td>黑棗總菇</td><td><strong>NT$ 650</strong> / 斤</td></tr>
+                    <tr><td>惜福菇系列</td><td>黑棗大開</td><td><strong>NT$ 950</strong> / 斤</td></tr>
+                    <tr><td>惜福菇系列</td><td>黑棗中開</td><td><strong>NT$ 850</strong> / 斤</td></tr>
+                    <tr><td><strong>黑棗冬菇系列</strong> <span class="badge-hot">香氣極度濃郁</span></td><td>大中冬菇</td><td><strong>NT$ 1,500</strong> / 斤</td></tr>
+                    <tr><td>黑棗冬菇系列</td><td>小中冬菇</td><td><strong>NT$ 1,200</strong> / 斤</td></tr>
+                    <tr><td><strong>黑皮冬菇系列</strong> <span class="badge-cp">火鍋/耐煮首選</span></td><td>大冬菇</td><td><strong>NT$ 1,100</strong> / 斤</td></tr>
+                    <tr><td>黑皮冬菇系列</td><td>大中冬菇</td><td><strong>NT$ 900</strong> / 斤</td></tr>
+                    <tr><td>黑皮冬菇系列</td><td>中冬菇</td><td><strong>NT$ 850</strong> / 斤</td></tr>
+                    <tr><td>黑皮冬菇系列</td><td>鈕扣菇</td><td><strong>NT$ 750</strong> / 斤</td></tr>
+                    <tr><td><strong>頂級花菇系列</strong> <span class="badge-hot">奢華送禮等級🔥</span></td><td>超巨大花菇</td><td><strong>NT$ 1,400</strong> / 斤</td></tr>
+                    <tr><td>頂級花菇系列</td><td>大花菇</td><td><strong>NT$ 1,100</strong> / 斤</td></tr>
+                    <tr><td>頂級花菇系列</td><td>大中花菇</td><td><strong>NT$ 950</strong> / 斤</td></tr>
+                    <tr><td>頂級花菇系列</td><td>鈕扣花菇</td><td><strong>NT$ 800</strong> / 斤</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 2. 椴木/武界系列 -->
+        <div id="premium-tab" class="price-table-box">
+            <table class="guanding-table">
+                <thead>
+                    <tr><th>高品質珍藏系列</th><th>規格說明</th><th>特惠價格</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>椴木香菇</strong> <span class="badge-hot">古法香氣最強🔥</span></td><td>大椴木菇</td><td><strong>NT$ 1,300</strong> / 斤</td></tr>
+                    <tr><td>椴木香菇</td><td>大中椴木菇</td><td><strong>NT$ 1,100</strong> / 斤</td></tr>
+                    <tr><td>椴木香菇</td><td>小中椴木</td><td><strong>NT$ 950</strong> / 斤</td></tr>
+                    <tr><td>椴木香菇</td><td>鈕扣菇</td><td><strong>NT$ 900</strong> / 斤</td></tr>
+                    <tr><td>椴木香菇</td><td>薄椴木中</td><td><strong>NT$ 900</strong> / 斤</td></tr>
+                    <tr><td><strong>武界香菇</strong> <span class="badge-cp">高山純淨雲霧</span></td><td>大商品</td><td><strong>NT$ 1,300</strong> / 斤</td></tr>
+                    <tr><td>武界香菇</td><td>大中商品</td><td><strong>NT$ 1,000</strong> / 斤</td></tr>
+                    <tr><td>武界香菇</td><td>料理方便香菇絲</td><td><strong>NT$ 700</strong> / 斤</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3. 香菇副產品 -->
+        <div id="byproduct-tab" class="price-table-box">
+            <table class="guanding-table">
+                <thead>
+                    <tr><th>副產品系列（便宜好用）</th><th>規格說明</th><th>特惠價格</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>天然香菇腳</td><td>大尺寸 (大廚愛用)</td><td><strong>NT$ 350</strong> / 斤</td></tr>
+                    <tr><td>天然香菇腳</td><td>中尺寸 (日常料理)</td><td><strong>NT$ 250</strong> / 斤</td></tr>
+                    <tr><td>天然香菇腳</td><td>小尺寸 (燉滷提味)</td><td><strong>NT$ 150</strong> / 斤</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 4. 養生菌菇類 -->
+        <div id="healthy-tab" class="price-table-box">
+            <table class="guanding-table">
+                <thead>
+                    <tr><th>溫潤養生菌菇</th><th>計價單位</th><th>特惠價格</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>頂級極品白木耳</td><td>每斤 (16兩)</td><td><strong>NT$ 450</strong> / 斤</td></tr>
+                    <tr><td>在地精選黑木耳</td><td>每斤 (16兩)</td><td><strong>NT$ 350</strong> / 斤</td></tr>
+                    <tr><td>特選紅黑木耳</td><td>每斤 (16兩)</td><td><strong>NT$ 500</strong> / 斤</td></tr>
+                    <tr><td>爽脆小川耳</td><td>每斤 (16兩)</td><td><strong>NT$ 450</strong> / 斤</td></tr>
+                    <tr><td>珍稀風味鹿茸菇</td><td>每斤 (16兩)</td><td><strong>NT$ 650</strong> / 斤</td></tr>
+                    <tr><td>養生巴西蘑菇</td><td>每斤 (16兩)</td><td><strong>NT$ 950</strong> / 斤</td></tr>
+                    <tr><td>厚實Q彈猴頭菇</td><td>每斤 (16兩)</td><td><strong>NT$ 500</strong> / 斤</td></tr>
+                    <tr><td>滋補黃金蟲草</td><td>每斤 (16兩)</td><td><strong>NT$ 650</strong> / 斤</td></tr>
+                    <tr><td>無硫天然金針</td><td>每斤 (16兩)</td><td><strong>NT$ 800</strong> / 斤</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 5. 熱銷零嘴點心 -->
+        <div id="snack-tab" class="price-table-box">
+            <table class="guanding-table">
+                <thead>
+                    <tr><th>熱銷休閒零嘴（回購率超高🔥）</th><th>重量規格</th><th>單包售價</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>香菇酥脆餅乾</strong> <span class="badge-hot">大人小孩最愛</span></td><td>隨身包 80g</td><td><strong>NT$ 100</strong></td></tr>
+                    <tr><td>香菇酥脆餅乾</td><td>分享包 120g</td><td><strong>NT$ 150</strong></td></tr>
+                    <tr><td><strong>香菇頭素肉乾</strong> <span class="badge-hot">經典越嚼越香</span></td><td>隨身包 120g</td><td><strong>NT$ 100</strong></td></tr>
+                    <tr><td>香菇頭素肉乾</td><td>大份量 200g</td><td><strong>NT$ 150</strong></td></tr>
+                    <tr><td>綜合菇餅乾（秀珍菇 / 杏鮑菇）</td><td>爽脆包 60g</td><td><strong>NT$ 100</strong></td></tr>
+                    <tr><td>濃郁焦糖乳酪絲</td><td>精緻包 80g</td><td><strong>NT$ 180</strong></td></tr>
+                    <tr><td><strong>埔里百香果凍</strong> <span class="badge-hot">夏天爆賣狂銷🔥</span></td><td>家庭斤裝 1斤</td><td><strong>NT$ 100</strong></td></tr>
+                    <tr><td>埔里百香果凍</td><td>營業批發箱裝 6公斤</td><td><strong>NT$ 800</strong></td></tr>
+     </tbody>
+            </table>
+        </div>
+
+        <!-- 🌟 補上切換分頁的 JavaScript 大腦 🌟 -->
+        <script>
+            function switchTab(tabId) {
+                // 1. 隱藏所有的表格區塊
+                const boxes = document.querySelectorAll('.price-table-box');
+                boxes.forEach(box => box.classList.remove('active-box'));
+                
+                // 2. 取消所有按鈕的亮起（深色）狀態
+                const buttons = document.querySelectorAll('#tab-button-group button');
+                buttons.forEach(btn => btn.classList.remove('active-tab'));
+                
+                // 3. 顯示目前點擊的表格
+                document.getElementById(tabId).classList.add('active-box');
+                
+                // 4. 自動去抓目前被點擊的那個按鈕，幫它加上 active-tab 樣式
+                if (window.event && window.event.currentTarget) {
+                    window.event.currentTarget.classList.add('active-tab');
+                }
+            }
+        </script>
 
     <!-- 3. 質感產品橱窗區 (五大支柱文案與圖片配置) -->
     <section class="products-section">
@@ -333,4 +518,71 @@
                 </div>
             </div>
 
-            <!-- 產品 4：香菇餅乾 -->
+
+               </div> <!-- 這裡是大禹嶺高冷茶卡片的 </div> 結尾 -->
+        </div> <!-- 這裡是最外層 product-grid 網格的 </div> 結尾 -->
+    </section> <!-- 這裡是有三張大卡片的 products-section 區塊完全結束結尾 -->
+
+    <!-- ==========================================================================
+       🏢 冠頂工坊：最底部品牌官方資訊頁尾 (Footer) - 獨立在外且完全滿版
+       ========================================================================== -->
+    <footer style="background-color: #4a3728; color: rgba(255,255,255,0.75); padding: 45px 20px; text-align: center; font-size: 14px; border-top: 5px solid #2d5a27; line-height: 1.8; margin-top: 60px; width: 100%; box-sizing: border-box;">
+        
+        <!-- 官方營業資訊 -->
+        <div style="max-width: 600px; margin: 0 auto 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.15);">
+            <p style="font-size: 16px; font-weight: bold; color: #ffffff; letter-spacing: 1px; margin-bottom: 5px;">👑 冠頂工坊</p>
+            <p style="margin: 3px 0;"><strong>公司統一編號：</strong>92262682</p>
+            <p style="margin: 3px 0;"><strong>公司地址：</strong>南投縣埔里鎮中山路四段159號</p>
+            <p style="margin: 3px 0;"><strong>聯絡電話：</strong><a href="tel:0986220377" style="color: #fff; text-decoration: none; font-weight: bold;">0986-220-377</a></p>
+        </div>
+
+        <p style="margin: 0; font-size: 13px; opacity: 0.85;">© 2026 冠頂工坊 🌟 台灣在地自然工藝專賣. All Rights Reserved.</p>
+        <p style="font-size: 11px; margin-top: 5px; opacity: 0.5;">食品業者登錄字號與產地責任險標示於蝦皮賣場內頁</p>
+    </footer>
+
+    <!-- ==========================================================================
+       💰 右下角恆定懸浮匯款資訊小窗 (不變)
+       ========================================================================== -->
+    <div id="floating-payment-window" class="floating-box">
+        <div class="floating-header">
+            <span>💰 冠頂工坊｜匯款帳戶</span>
+            <span onclick="togglePaymentWindow()" class="floating-toggle-icon">➖</span>
+        </div>
+        <div class="floating-body" id="floating-content">
+            <div class="bank-row"><strong>銀行名稱：</strong>中國信託南投分行 (822)</div>
+            <div class="bank-row"><strong>匯款帳號：</strong><span class="account-num">078-54-0340485</span></div>
+            <div class="bank-row"><strong>戶名：</strong>冠頂工坊</div>
+            <div style="font-size: 11px; color: #ff5722; margin-top: 8px; border-top: 1px dashed #eee; padding-top: 6px; line-height: 1.4;">
+                💡 溫馨提示：匯款完成後，請主動至 LINE 告知您的「帳號後五碼」與「收件資料」，以便工坊光速為您出貨發貨喔！
+            </div>
+        </div>
+        <div class="floating-collapsed-title" id="floating-collapsed-btn" onclick="togglePaymentWindow()">
+            💰 點我看匯款資訊
+        </div>
+    </div>
+
+    <!-- 專屬懸浮窗衣服樣式 -->
+    <style>
+        .floating-box { position: fixed; bottom: 30px; right: 30px; width: 280px; background: #ffffff; border: 2px solid #4a3728; border-radius: 8px; box-shadow: 0 10px 30px rgba(74, 55, 40, 0.15); z-index: 9999; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .floating-header { background: #4a3728; color: #ffffff; padding: 10px 15px; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .floating-toggle-icon { cursor: pointer; font-size: 12px; opacity: 0.8; transition: opacity 0.2s; }
+        .floating-body { padding: 15px; font-size: 13px; color: #333333; background: #fdfaf6; }
+        .bank-row { margin-bottom: 6px; }
+        .account-num { color: #ee4d2d; font-weight: bold; font-size: 14px; letter-spacing: 0.5px; }
+        .floating-collapsed-title { display: none; background: #4a3728; color: white; padding: 12px 20px; font-size: 13px; font-weight: bold; text-align: center; cursor: pointer; }
+        .floating-box.collapsed { width: 160px; border-color: #4a3728; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .floating-box.collapsed .floating-header, .floating-box.collapsed .floating-body { display: none; }
+        .floating-box.collapsed .floating-collapsed-title { display: block; }
+        @media (max-width: 768px) { .floating-box { bottom: 20px; right: 20px; width: 250px; } }
+    </style>
+
+    <!-- 控制小窗縮放的大腦 -->
+    <script>
+        function togglePaymentWindow() {
+            const box = document.getElementById('floating-payment-window');
+            box.classList.toggle('collapsed');
+        }
+    </script>
+
+</body>
+</html>
