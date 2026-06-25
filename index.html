@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+
+        <!-- 串接我們剛剛獨立出去的 CSS 衣服檔案 -->
+    <link rel="stylesheet" href="style.css">
     <meta name="google-site-verification" content="YqdLg8Kzeg-0Cy7jqBimnmh_bNAuuC1wkZjSqmkk30U" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,244 +27,10 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <style>
-        /* ==========================================================================
-           🎨 絕美大地風：CSS 品牌視覺設計
-           ========================================================================== */
-        :root {
-            --primary-orange: #ee4d2d; /* 導流核心：蝦皮招牌橘 */
-            --forest-green: #2d5a27;   /* 高山茶翠綠 */
-            --earth-brown: #4a3728;    /* 香菇木質深褐 */
-            --warm-beige: #fdfaf6;     /* 溫暖柔和背景色 */
-            --text-dark: #2c2c2c;      /* 質感內文灰黑 */
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--warm-beige);
-            color: var(--text-dark);
-            line-height: 1.7;
-        }
-
-        /* 頂部隱形微導覽 */
-        header {
-            padding: 20px;
-            text-align: center;
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .brand-logo {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--earth-brown);
-        }
-
-        /* 1. 首頁巨幕英雄區 (Hero Section) */
-        .hero-section {
-            position: relative;
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            /* 使用高質感大地山林底圖 */
-            background: linear-gradient(rgba(74, 55, 40, 0.75), rgba(45, 90, 39, 0.8)), 
-                        url('https://unsplash.com') no-repeat center center/cover;
-            color: #fff;
-        }
-
-        .hero-section h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-section p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            font-weight: 300;
-            letter-spacing: 1px;
-            opacity: 0.95;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
-        }
-
-        /* 核心導流按鈕 (CTA Button)：完美致敬原要求 */
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background-color: var(--primary-orange);
-            color: white;
-            text-decoration: none;
-            padding: 18px 45px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(238, 77, 45, 0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: pulse 2s infinite;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(238, 77, 45, 0.6);
-            background-color: #f05d42;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(238, 77, 45, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(238, 77, 45, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(238, 77, 45, 0); }
-        }
-
-        /* 2. 品牌堅持區 */
-        .intro-section {
-            max-width: 1000px;
-            margin: -60px auto 60px;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            position: relative;
-            z-index: 10;
-            text-align: center;
-        }
-
-        .intro-section h2 {
-            font-size: 1.8rem;
-            color: var(--earth-brown);
-            margin-bottom: 15px;
-        }
-
-        .intro-section .divider {
-            width: 50px;
-            height: 3px;
-            background: var(--forest-green);
-            margin: 0 auto 20px;
-        }
-
-        /* 3. 產品櫥窗區 (Product Grid) */
-        .products-section {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--earth-brown);
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(74, 55, 40, 0.1);
-        }
-
-        .product-img-wrapper {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-img {
-            transform: scale(1.08);
-        }
-
-        .product-info {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .product-tag {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--forest-green);
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .product-title {
-            font-size: 1.3rem;
-            color: var(--earth-brown);
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .product-desc {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-            flex: 1;
-        }
-
-        /* 頁尾區 */
-        footer {
-            background-color: var(--earth-brown);
-            color: rgba(255,255,255,0.7);
-            padding: 40px 20px;
-            text-align: center;
-            font-size: 14px;
-            border-top: 5px solid var(--forest-green);
-        }
-
-        /* 響應式微調 */
-        @media (max-width: 768px) {
-            .hero-section h1 { font-size: 2.2rem; }
-            .hero-section p { font-size: 1.1rem; }
-            .intro-section { margin: -30px 20px 40px; padding: 25px; }
-        }
-    </style>
 </head>
+    <!-- 串接我們剛剛獨立出去的 CSS 衣服檔案 -->
+    <link rel="stylesheet" href="style.css">
+
 <body>
 
     <!-- 品牌輕頂欄 -->
@@ -340,24 +109,7 @@
         </div>
 
         <!-- 📊 內嵌專屬表格樣式 (直接寫在HTML內部方便您複製) -->
-        <style>
-            .menu-tab-btn { background: #f0edf8; border: 1px solid #ddd; color: #555; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
-            .menu-tab-btn:hover { background: #e0dbf0; color: #4a3728; }
-            .menu-tab-btn.active-tab { background: #4a3728; color: white; border-color: #4a3728; }
-            
-            .price-table-box { display: none; width: 100%; overflow-x: auto; background: #fff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-            .price-table-box.active-box { display: block; animation: fadeIn 0.3s ease; }
-            
-            .guanding-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; min-width: 500px; }
-            .guanding-table th { background-color: #4a3728; color: white; padding: 12px 15px; font-weight: bold; }
-            .guanding-table td { padding: 12px 15px; border-bottom: 1px solid #eee; color: #444; }
-            .guanding-table tr:hover { background-color: #fafafa; }
-            
-            .badge-hot { background-color: #ff4d4d; color: white; font-size: 11px; padding: 2px 6px; border-radius: 3px; font-weight: bold; margin-left: 5px; }
-            .badge-cp { background-color: #ff9f43; color: white; font-size: 11px; padding: 2px 6px; border-radius: 3px; font-weight: bold; margin-left: 5px; }
-            
-            @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-        </style>
+        
 
         <!-- 1. 核心香菇系列 -->
         <div id="shroom-tab" class="price-table-box active-box">
