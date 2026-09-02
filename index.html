@@ -317,13 +317,16 @@
     <!-- ==========================================================================
        💰 右下角恆定懸浮匯款資訊小窗 (不變)
        ========================================================================== -->
-    <div id="floating-payment-window" class="floating-box">
+   <!-- 💰 右下角恆定懸浮匯款資訊小窗 (不變)
+       ========================================================================== -->
+<!-- 💡 核心修改：在 class 加上 collapsed，讓它一進網頁就是收起狀態 -->
+<div id="floating-payment-window" class="floating-box collapsed">
     <div class="floating-header">
         <span>💰 冠頂工坊｜匯款帳戶</span>
         <span onclick="togglePaymentWindow()" class="floating-toggle-icon">➖</span>
     </div>
-    <!-- 1. 這裡加上 style="display: none;"，讓內文一開始先隱藏 -->
-    <div class="floating-body" id="floating-content" style="display: none;">
+    <!-- 💡 恢復原狀：把之前加的 style="display: none;" 拿掉，交給 CSS 控制 -->
+    <div class="floating-body" id="floating-content">
         <div class="bank-row"><strong>銀行名稱：</strong>中國信託南投分行 (822)</div>
         <div class="bank-row"><strong>匯款帳號：</strong><span class="account-num">078-54-0340485</span></div>
         <div class="bank-row"><strong>戶名：</strong>冠頂工坊</div>
@@ -331,33 +334,35 @@
             💡 溫馨提示：匯款完成後，請主動至 LINE 告知您的「帳號後五碼」與「收件資料」，以便工坊光速為您出貨發貨喔！
         </div>
     </div>
-    <!-- 2. 這裡加上 style="display: block;"，讓「點我看匯款資訊」按鈕一開始就顯示出來 -->
-    <div class="floating-collapsed-title" id="floating-collapsed-btn" onclick="togglePaymentWindow()" style="display: block;">
+    <!-- 💡 恢復原狀：把之前加的 style="display: block;" 拿掉 -->
+    <div class="floating-collapsed-title" id="floating-collapsed-btn" onclick="togglePaymentWindow()">
         💰 點我看匯款資訊
     </div>
 </div>
-    <!-- 專屬懸浮窗衣服樣式 -->
-    <style>
-        .floating-box { position: fixed; bottom: 30px; right: 30px; width: 280px; background: #ffffff; border: 2px solid #4a3728; border-radius: 8px; box-shadow: 0 10px 30px rgba(74, 55, 40, 0.15); z-index: 9999; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        .floating-header { background: #4a3728; color: #ffffff; padding: 10px 15px; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-        .floating-toggle-icon { cursor: pointer; font-size: 12px; opacity: 0.8; transition: opacity 0.2s; }
-        .floating-body { padding: 15px; font-size: 13px; color: #333333; background: #fdfaf6; }
-        .bank-row { margin-bottom: 6px; }
-        .account-num { color: #ee4d2d; font-weight: bold; font-size: 14px; letter-spacing: 0.5px; }
-        .floating-collapsed-title { display: none; background: #4a3728; color: white; padding: 12px 20px; font-size: 13px; font-weight: bold; text-align: center; cursor: pointer; }
-        .floating-box.collapsed { width: 160px; border-color: #4a3728; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .floating-box.collapsed .floating-header, .floating-box.collapsed .floating-body { display: none; }
-        .floating-box.collapsed .floating-collapsed-title { display: block; }
-        @media (max-width: 768px) { .floating-box { bottom: 20px; right: 20px; width: 250px; } }
-    </style>
 
-    <!-- 控制小窗縮放的大腦 -->
-    <script>
-        function togglePaymentWindow() {
-            const box = document.getElementById('floating-payment-window');
-            box.classList.toggle('collapsed');
-        }
-    </script>
+<!-- 專屬懸浮窗衣服樣式 -->
+<style>
+    .floating-box { position: fixed; bottom: 30px; right: 30px; width: 280px; background: #ffffff; border: 2px solid #4a3728; border-radius: 8px; box-shadow: 0 10px 30px rgba(74, 55, 40, 0.15); z-index: 9999; overflow: hidden; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .floating-header { background: #4a3728; color: #ffffff; padding: 10px 15px; font-size: 13px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+    .floating-toggle-icon { cursor: pointer; font-size: 12px; opacity: 0.8; transition: opacity 0.2s; }
+    .floating-body { padding: 15px; font-size: 13px; color: #333333; background: #fdfaf6; }
+    .bank-row { margin-bottom: 6px; }
+    .account-num { color: #ee4d2d; font-weight: bold; font-size: 14px; letter-spacing: 0.5px; }
+    .floating-collapsed-title { display: none; background: #4a3728; color: white; padding: 12px 20px; font-size: 13px; font-weight: bold; text-align: center; cursor: pointer; }
+    .floating-box.collapsed { width: 160px; border-color: #4a3728; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .floating-box.collapsed .floating-header, .floating-box.collapsed .floating-body { display: none; }
+    .floating-box.collapsed .floating-collapsed-title { display: block; }
+    @media (max-width: 768px) { .floating-box { bottom: 20px; right: 20px; width: 250px; } }
+</style>
+
+<!-- 控制小窗縮放的大腦 -->
+<script>
+    function togglePaymentWindow() {
+        const box = document.getElementById('floating-payment-window');
+        box.classList.toggle('collapsed');
+    }
+</script>
+
 
 </body>
 </html>
